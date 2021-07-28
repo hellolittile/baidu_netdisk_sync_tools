@@ -19,7 +19,7 @@ sudo docker-compose up -d
 * set your token
 you can folow the guide from project [bypy](https://github.com/houtianze/bypy) 
 ```
-sudo docker -exec -it bdnd_tools bypy info
+sudo docker -exec -it bdnd_tools sh -c 'bypy info' 
 ```
 * save/move file to /app/bypy/ at baidu net disk
 * the program will check every 10s , you can change the rule in the file init
