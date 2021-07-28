@@ -7,7 +7,7 @@ while [ true ] ; do
 		continue
 	fi
 	if [[ -n "$(bypy ls|sed 1d)" ]] ; then
-		bypy ls / \$f |sed '1d'|xargs -I fname sh -c 'bypy download /fname /data/fname && bypy rm /fname' >> $logfile
+		bypy ls / \$f |sed '1d'|xargs -I fname sh -c "bypy download '/fname' '/data/fname' && bypy rm '/fname'" >> $logfile
 	fi
 	sleep 10
 done
