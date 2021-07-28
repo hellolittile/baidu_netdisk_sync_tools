@@ -1,0 +1,13 @@
+#!/bin/sh
+logfile=/var/log/init.log
+while [ true ] ; do
+	if [[ `cat /root/.bypy/bypy.setting.json` == "{}" ]] ; then
+		echo "you should follow the guide from https://github.com/houtianze/bypy to set auth first" >> $logfile
+		sleep 10
+		continue
+	fi
+	if [[ -n "$(bypy ls|sed 1d)" ]] ; then
+		bypy ls / \$f |sed '1d'|xargs -I fname sh -c 'bypy download /fname /data/fname && bypy rm /fname' >> $logfile
+	fi
+	sleep 10
+done
